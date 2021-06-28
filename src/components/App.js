@@ -33,7 +33,7 @@ function App() {
   const history = useHistory();
   
 
- // const done = require('../images/done.svg')
+
 
   useEffect(() => {
     api.getUserInfo()
@@ -172,8 +172,8 @@ function App() {
         setUserEmail(result.data.email);
         setInfoTooltipOpen({ opened: true, success: true })
         setLoggedIn(true);
-        history.push('/');
-        setCurrentPath('/');
+        history.push('/sign-in');
+        setCurrentPath('/sign-in');
       }
       else {
         throw new Error('Не удалось пройти регистрацию');

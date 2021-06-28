@@ -1,6 +1,7 @@
 class Api {
   constructor(confing) {
-    this._headers = confing.headers
+    this._baseUrl= confing.baseUrl;
+    this._headers = confing.headers;
   }
 
   _checkError(res) {
@@ -12,7 +13,7 @@ class Api {
 
   //получаем список всех карточек
   getInitialCards() {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-23/cards', {
+    return fetch(`${this._baseUrl}/cards`, {
       method: 'GET',
       headers: this._headers
     })
@@ -22,7 +23,7 @@ class Api {
 
   //получаем информацию пользователя
   getUserInfo() {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-23/users/me', {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: this._headers
     })
@@ -39,7 +40,7 @@ class Api {
       }),
       
     }
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-23/users/me/avatar`, newConfing)
+    return fetch(`${this._baseUrl}/users/me/avatar`, newConfing)
     .then(this._checkError);
   }
 
@@ -49,7 +50,7 @@ class Api {
       headers: this._headers,
       method: 'DELETE',
     }
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-23/cards/${cardId}`, newConfing)
+    return fetch(`${this._baseUrl}/cards/${cardId}`, newConfing)
     .then(this._checkError);
   }
 
@@ -64,7 +65,7 @@ class Api {
       headers: this._headers,
       method: 'DELETE', 
     }
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-23/cards/likes/${cardId}`, isLiked ? deleteLike : updateLike)
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, isLiked ? deleteLike : updateLike)
     .then(this._checkError);
   }
 
@@ -75,7 +76,7 @@ class Api {
       headers: this._headers,
       body: JSON.stringify(userData),
     }
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-23/users/me', newConfing)
+    return fetch(`${this._baseUrl}/users/me`, newConfing)
     .then(this._checkError);
   }
 
@@ -87,7 +88,7 @@ class Api {
       body: JSON.stringify(inputsValue),
       
   }
-  return fetch('https://mesto.nomoreparties.co/v1/cohort-23/cards', newConfing)
+  return fetch(`${this._baseUrl}/cards`, newConfing)
   .then(this._checkError);
 }
 }

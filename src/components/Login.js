@@ -28,8 +28,16 @@ return (
   <div>
     <form className="form" onSubmit={handleSubmit}>
       <h1 className="form__title">Вход</h1>
-      <input type='email' onChange={handleEmailChange} className="form__item" id='signin-email' placeholder="Email" required ></input>
-      <input type='password' onChange={handlePasswordChange} className="form__item" id='signin-password' placeholder="Password" required></input>
+      <input 
+      type='email' onChange={handleEmailChange} 
+      className="form__item" value={email} 
+      id='signin-email' 
+      placeholder="Email" required />
+      <input 
+      type='password' onChange={handlePasswordChange} 
+      className="form__item"  value={password} 
+      id='signin-password' 
+      placeholder="Password" required />
       <button type='submit' className='form__button' >Войти</button>
     </form>
   </div>

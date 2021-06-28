@@ -16,7 +16,7 @@ function Register (props) {
   const handlePathChange = (newPath) => {props.onPathChange(newPath)};
 
   React.useEffect(() => {
-    handlePathChange('/sign-un')
+    handlePathChange('/sign-up')
   }, []);
 
   return (
@@ -24,11 +24,12 @@ function Register (props) {
     <form className="form" onSubmit={handleSubmit}>
       <h1 className="form__title">Регистрация</h1>
       <input type='email' onChange={handleEmailChange} 
-      className="form__item" id='signin-email' placeholder="Email" 
-      required ></input>
+      value={email} className="form__item" 
+      id='signin-email' placeholder="Email" 
+      required />
       <input type='password' onChange={handlePasswordChange} 
       className="form__item" id='signin-password' 
-      placeholder="Password" required></input>
+      placeholder="Password"  value={password} required />
       <button type='submit' className='form__button'>Регистрация</button>
       <p className="form__caption">Уже зарегистрированы? 
       <Link className="form__link" to="/sign-in">Войти</Link>

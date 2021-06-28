@@ -13,7 +13,7 @@
 }
 
 .form__item:focus {
-  border-bottom: 2px solid black;
+  outline: none;
 }
 
 .form__item::placeholder {
